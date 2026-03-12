@@ -1,0 +1,361 @@
+/* ===== NỀN TRANG ===== */
+
+.pf-page {
+  background: #f5f5f7;
+  padding-top: 48px;
+  padding-bottom: 72px;
+}
+
+.pf-container {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ROW ===== */
+
+.pf-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.pf-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.pf-subtext {
+  max-width: 420px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 4px 0 0;
+  text-align: right;
+}
+
+/* ===== MAIN ROW ===== */
+
+.pf-main-row {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  column-gap: 72px;
+  align-items: flex-start;
+}
+
+/* --- Sections common --- */
+
+.pf-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 16px;
+}
+
+/* ===== AVATAR BLOCK ===== */
+
+.pf-avatar-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-avatar-wrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f97316;
+}
+
+.pf-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* nút upload ở góc dưới phải hình tròn */
+.pf-avatar-upload-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pf-avatar-upload-icon {
+  display: block;
+}
+
+/* ghi chú dưới avatar */
+.pf-avatar-note {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 12px;
+}
+
+/* ===== INFO BLOCK ===== */
+
+.pf-info-block {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+/* grid 2 cột form */
+
+.pf-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 24px;
+  row-gap: 16px;
+  margin-top: 4px;
+  margin-bottom: 24px;
+}
+
+.pf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pf-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.pf-field input {
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.pf-field input:focus {
+  border-color: #dd673c;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(221, 103, 60, 0.25);
+}
+
+/* ===== NÚT ĐỔI MẬT KHẨU ===== */
+
+.pf-change-pass-btn {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #ffd9c7;
+  background: #fff4ee;
+  color: #dd673c;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease,
+    box-shadow 0.12s ease, transform 0.12s ease;
+}
+
+.pf-change-pass-icon {
+  flex-shrink: 0;
+}
+
+.pf-change-pass-btn:hover {
+  background: #ffe7dd;
+  border-color: #ffc7aa;
+  transform: translateY(-0.5px);
+  box-shadow: 0 8px 18px rgba(221, 103, 60, 0.24);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1024px) {
+  .pf-main-row {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+
+  .pf-avatar-block {
+    align-items: center;
+  }
+
+  .pf-avatar-note {
+    text-align: center;
+  }
+
+  .pf-subtext {
+    max-width: 320px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .pf-page {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+
+  .pf-container {
+    padding: 0 16px;
+  }
+
+  .pf-header-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pf-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pf-info-block {
+    padding: 20px 16px 22px;
+  }
+}
+/* --- CSS CHO MODAL ĐỔI MẬT KHẨU --- */
+
+.pf-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Nền tối mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.pf-modal-container {
+  background: #fff;
+  width: 500px;
+  max-width: 90%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pf-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #000;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.pf-modal-field {
+  margin-bottom: 16px;
+}
+
+.pf-modal-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.pf-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pf-input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 16px; /* Chừa chỗ cho icon mắt */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pf-input-wrapper input:focus {
+  border-color: #dd673c;
+}
+
+.pf-eye-icon {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.pf-modal-actions {
+  display: flex;
+  justify-content: flex-end; /* Nút nằm bên phải như thiết kế */
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #eee; /* Đường kẻ ngang trên nút */
+}
+
+.pf-btn-cancel {
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pf-btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+.pf-btn-submit {
+  background: #dd673c; /* Màu cam giống thiết kế */
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pf-btn-submit:hover {
+  background: #c5562e;
+}
+
+.pf-btn-submit:disabled {
+  background: #f2a88d;
+  cursor: not-allowed;
+}
+
+.pf-modal-error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.pf-modal-success {
+  color: #28a745;
+  font-size: 13px;
+  margin-top: 5px;
+}

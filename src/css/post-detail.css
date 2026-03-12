@@ -1,0 +1,357 @@
+/* ========================================= */
+/* 1. PHẦN GIAO DIỆN CHÍNH (GIỮ NGUYÊN CỦA BẠN) */
+/* ========================================= */
+
+/* ===== WRAPPER ===== */
+.pd-page {
+  /* Nền trắng giống Figma */
+  background: #ffffff;
+  padding: 32px 0 64px;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Khung nội dung: canh giữa, bề rộng ~ Figma */
+.pd-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ===== BREADCRUMB ===== */
+.pd-breadcrumb {
+  padding: 16px 0 8px;
+  font-size: 13px;
+  color: #8c8c8c;
+  cursor: pointer;
+}
+.pd-breadcrumb span:hover {
+  color: #1890ff; /* Thêm hiệu ứng hover */
+}
+
+.pd-breadcrumb-sep {
+  margin: 0 4px;
+  color: #d9d9d9;
+}
+
+.pd-breadcrumb-current {
+  color: #262626;
+  font-weight: 500;
+}
+
+/* ===== HEADER BÀI VIẾT ===== */
+.pd-header {
+  padding: 8px 0 24px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 32px;
+}
+
+.pd-title {
+  font-size: 32px; /* Tăng nhẹ size title cho nổi bật */
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  color: #1f1f1f;
+}
+
+/* 👉 ĐỔI TÊN: .pd-meta-row -> .pd-meta (để khớp với JSX) */
+.pd-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pd-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px; /* Bo góc nhẹ */
+  padding: 2px 10px;
+  background: #fff1f0; /* Màu đỏ nhạt của AntDesign */
+  border: 1px solid #ffa39e;
+  color: #cf1322;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pd-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #8c8c8c;
+}
+
+/* ===== LAYOUT 2 CỘT ===== */
+/* 👉 ĐỔI TÊN: .pd-layout -> .pd-grid (để khớp với JSX) */
+.pd-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr); /* Tinh chỉnh tỷ lệ */
+  gap: 48px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CỘT BÀI VIẾT BÊN TRÁI */
+/* 👉 ĐỔI TÊN: .pd-article -> .pd-main (để khớp với JSX) */
+.pd-main {
+  min-width: 0; /* Tránh vỡ layout grid */
+}
+
+/* Ảnh cover ở đầu bài (nếu có) */
+.pd-image-block {
+  margin-bottom: 32px;
+}
+.pd-image-block img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ===== SIDEBAR BÊN PHẢI (GIỮ NGUYÊN) ===== */
+.pd-sidebar {
+  padding-top: 0;
+}
+
+.pd-sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+  color: #262626;
+}
+
+.pd-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pd-sidebar-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0; /* Thêm viền nhẹ */
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.pd-sidebar-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.pd-sidebar-thumb {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+.pd-sidebar-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.pd-sidebar-card:hover .pd-sidebar-thumb img {
+  transform: scale(1.05);
+}
+
+.pd-sidebar-content {
+  padding: 16px;
+}
+
+.pd-sidebar-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #262626;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pd-sidebar-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-top: 12px;
+}
+
+
+/* ========================================= */
+/* 2. PHẦN QUAN TRỌNG: STYLE CHO NỘI DUNG CKEDITOR */
+/* BẮT BUỘC PHẢI CÓ ĐỂ HIỂN THỊ ĐẸP */
+/* ========================================= */
+
+.ck-content {
+  font-size: 16px;     /* Chữ to dễ đọc */
+  line-height: 1.8;    /* Giãn dòng thoáng */
+  color: #262626;      /* Màu chữ đậm dễ đọc trên nền trắng */
+  text-align: justify;
+}
+
+/* --- Headings (Tiêu đề con trong bài) --- */
+.ck-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #1f1f1f;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ck-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #262626;
+}
+
+.ck-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 24px;
+}
+
+/* --- Paragraphs & Lists --- */
+.ck-content p {
+  margin-bottom: 24px;
+}
+
+.ck-content ul, .ck-content ol {
+  margin-bottom: 24px;
+  padding-left: 24px;
+}
+.ck-content li {
+  margin-bottom: 8px;
+}
+
+/* --- Blockquote (Trích dẫn) --- */
+.ck-content blockquote {
+  font-size: 16px;
+  font-style: italic;
+  color: #595959;
+  padding: 16px 24px;
+  margin: 32px 0;
+  background: #fafafa;
+  border-left: 4px solid #1890ff; /* Màu xanh chủ đạo */
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- HÌNH ẢNH (Quan trọng nhất) --- */
+/* CKEditor bọc ảnh trong thẻ <figure class="image"> */
+.ck-content figure.image {
+  display: block;
+  margin: 32px 0;
+  clear: both;
+  text-align: center;
+  width: 100%;
+}
+
+.ck-content figure.image img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; /* Đảm bảo không tràn màn hình */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ck-content figure.image figcaption {
+  margin-top: 10px;
+  color: #8c8c8c;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* --- TABLE (Bảng biểu) --- */
+.ck-content figure.table {
+  margin: 32px 0;
+  overflow-x: auto;
+}
+.ck-content table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #f0f0f0;
+}
+.ck-content th, .ck-content td {
+  padding: 12px;
+  border: 1px solid #f0f0f0;
+}
+.ck-content th {
+  background: #fafafa;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* --- Code Block --- */
+.ck-content pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Code', Consolas, monospace;
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+/* --- Links --- */
+.ck-content a {
+  color: #1890ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.ck-content a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================= */
+/* 3. RESPONSIVE */
+/* ========================================= */
+@media (max-width: 992px) {
+  .pd-container {
+    padding: 0 20px 32px;
+  }
+  /* Cập nhật tên class responsive */
+  .pd-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd-page {
+    padding: 16px 0;
+  }
+  .pd-container {
+    padding: 0 16px;
+  }
+  .pd-title {
+    font-size: 24px;
+  }
+  /* Cập nhật tên class responsive */
+  .pd-grid {
+    grid-template-columns: 1fr; /* Mobile về 1 cột */
+    gap: 40px;
+  }
+  .pd-sidebar-thumb {
+    height: 200px;
+  }
+}

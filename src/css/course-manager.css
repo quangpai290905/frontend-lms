@@ -1,0 +1,214 @@
+/* ✅ src/css/course-manager.css */
+
+/* --- GLOBAL VARS --- */
+:root {
+  --primary-color: #3b82f6;
+  --bg-color: #f3f4f6;
+  --sidebar-bg: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --hover-color: #f9fafb;
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --radius-md: 12px;
+}
+
+/* --- CONTAINER --- */
+.course-manager-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- HEADER --- */
+.cm-header {
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  z-index: 10;
+}
+
+.cm-header-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-left: 12px;
+}
+
+/* --- BODY LAYOUT --- */
+.cm-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  gap: 1px; /* Tạo vạch ngăn cách tinh tế */
+}
+
+/* --- SIDEBAR (TREE VIEW) --- */
+.cm-sidebar {
+  width: 340px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+  flex-shrink: 0;
+  transition: width 0.2s ease;
+}
+
+.cm-sidebar-toolbar {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  gap: 10px;
+  background: #fafafa;
+}
+
+.cm-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 8px;
+}
+
+/* --- CUSTOM TREE ANT DESIGN --- */
+.cm-tree .ant-tree-node-content-wrapper {
+  padding: 6px 4px !important;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.cm-tree .ant-tree-node-content-wrapper:hover {
+  background-color: var(--hover-color);
+}
+
+.cm-tree .ant-tree-node-selected {
+  background-color: #eff6ff !important; /* Xanh nhạt */
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.cm-tree .ant-tree-treenode {
+  padding-bottom: 4px; /* Giãn cách các dòng */
+}
+
+/* Icon trong tree */
+.cm-tree .anticon {
+  margin-right: 8px;
+}
+
+/* --- MAIN CONTENT (EDITOR) --- */
+.cm-content {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center; /* Căn giữa nội dung */
+}
+
+/* Panel chính (Giấy trắng) */
+.cm-editor-panel {
+  background: white;
+  width: 100%;
+  max-width: 900px; /* Giới hạn độ rộng để dễ đọc */
+  padding: 40px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  min-height: 500px;
+  border: 1px solid white; /* Fix viền */
+}
+
+/* Header Editor */
+.cm-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cm-node-tag {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Actions Button Group */
+.cm-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Form Sections */
+.cm-form-section {
+  margin-bottom: 24px;
+}
+
+.cm-form-section label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+/* Input Custom */
+.cm-form-section input, 
+.cm-form-section textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  transition: all 0.2s;
+}
+
+.cm-form-section input:focus, 
+.cm-form-section textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* --- ACTION BUTTONS GRID (Trong bài học) --- */
+.cm-lesson-actions {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
+}
+
+.cm-action-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.cm-action-grid button {
+  height: 40px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- EMPTY STATE --- */
+.cm-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+}
+
+.cm-empty-state svg {
+  margin-bottom: 16px;
+  opacity: 0.2;
+}
