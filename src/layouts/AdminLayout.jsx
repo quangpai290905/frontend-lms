@@ -57,7 +57,7 @@ export default function AdminLayout() {
           .then((res) => setUnreadCount(res.count))
           .catch((err) => console.error(err));
 
-        const socket = io('http://https://lms-mankai.onrender.com', {
+        const socket = io('https://lms-mankai.onrender.com', {
             query: { userId: currentUser.user_id }
         });
 

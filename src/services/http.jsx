@@ -3,7 +3,7 @@ import axios from "axios";
 import { store, logout } from "@/redux/store";
 
 // Base URL từ biến môi trường
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://https://lms-mankai.onrender.com";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://lms-mankai.onrender.com";
 
 const http = axios.create({
   baseURL: BASE_URL,

@@ -67,7 +67,7 @@ export default function Home() {
           .then((res) => setUnreadCount(res.count))
           .catch((err) => console.error(err));
 
-        const socket = io('http://https://lms-mankai.onrender.com', { query: { userId: user.user_id } });
+        const socket = io('https://://lms-mankai.onrender.com', { query: { userId: user.user_id } });
         socket.on('receiveMessage', (newMsg) => {
           if (newMsg.sender.user_id !== user.user_id) {
              if (!chatOpenRef.current) {

@@ -40,7 +40,7 @@ export const AiChatService = {
   },
 
   getAudioUrl: (text, lang = 'ja') => {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://https://lms-mankai.onrender.com';
+    const baseUrl = import.meta.env.VITE_API_BASE_URL || 'https://://lms-mankai.onrender.com';
     return `${baseUrl}/ai-chat/tts?text=${encodeURIComponent(text)}&lang=${lang}`;
   }
 };
